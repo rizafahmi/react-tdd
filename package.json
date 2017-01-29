@@ -17,8 +17,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha --require src/setup.js src/*.spec.js",
-    "test:watch": "yarn test -- --watch",
+    "test": "react-scripts test --env=jsdom",
+    "mocha": "mocha --require src/setup.js src/**/*.spec.js",
+    "mocha:watch": "yarn run mocha -- --watch",
     "eject": "react-scripts eject"
   }
 }
