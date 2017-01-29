@@ -6,7 +6,7 @@ import { App } from './components/App.js'
 import { InputArea } from './components/InputArea.js'
 import { CulinaryList } from './components/CulinaryList.js'
 
-describe('CulinaryListContainer', () => {
+describe('<App />', () => {
   it('should render InputArea and CulinaryList', () => {
     const wrapper = shallow(<App />)
     expect(wrapper.containsAllMatchingElements([
