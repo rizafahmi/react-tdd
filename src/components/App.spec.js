@@ -1,10 +1,10 @@
 import React from 'react'
 import { expect } from 'chai'
 import { shallow, mount } from 'enzyme'
-import { App } from './components/App.js'
+import { App } from './App.js'
 
-import { InputArea } from './components/InputArea.js'
-import { CulinaryList } from './components/CulinaryList.js'
+import { InputArea } from './InputArea.js'
+import { CulinaryList } from './CulinaryList.js'
 
 describe('<App />', () => {
   it('should render InputArea and CulinaryList', () => {
@@ -13,5 +13,9 @@ describe('<App />', () => {
       <InputArea />,
       <CulinaryList />
     ])).to.be.true
+  })
+  it('should start with empty list', () => {
+    const wrapper = shallow(<App />)
+      expect(wrapper.state('menus')).to.have.lengthOf(0)
   })
 })
