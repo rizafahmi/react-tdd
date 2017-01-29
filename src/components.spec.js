@@ -1,7 +1,17 @@
+import React from 'react'
 import { expect } from 'chai'
+import { shallow, mount } from 'enzyme'
+import { App } from './components/App.js'
 
-describe('test the environment', () => {
-  it('works, hopefully', () => {
-    expect(true).to.be.true
+import { InputArea } from './components/InputArea.js'
+import { CulinaryList } from './components/CulinaryList.js'
+
+describe('CulinaryListContainer', () => {
+  it('should render InputArea and CulinaryList', () => {
+    const wrapper = shallow(<App />)
+    expect(wrapper.containsAllMatchingElements([
+      <InputArea />,
+      <CulinaryList />
+    ])).to.be.true
   })
 })

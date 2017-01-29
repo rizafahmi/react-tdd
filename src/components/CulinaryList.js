@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const CulinaryList = (props) => {
+export const CulinaryList = () => {
   return (
-    <span>Makanan Indonesia</span>
+    <ul />
   )
 }
