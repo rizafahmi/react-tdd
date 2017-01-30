@@ -41,10 +41,10 @@ describe('<App />', () => {
 })
 
 describe('<InputArea />', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = mount(<InputArea />)
-    })
+  let wrapper
+  beforeEach(() => {
+    wrapper = mount(<InputArea />)
+  })
   it('should contain an input and a button', () => {
     expect(wrapper.containsAllMatchingElements([
       <input />,
@@ -59,5 +59,21 @@ describe('<InputArea />', () => {
     }})
     expect(wrapper.state('text')).to.equal('Gado-gado')
     expect(input.prop('value')).to.equal('Gado-gado')
+  })
+})
+
+describe('<CulinaryList />', () => {
+  it('should render zero items', () => {
+    const wrapper = shallow(<CulinaryList items={[]} />)
+    expect(wrapper.find('li')).to.have.lengthOf(0)
+  })
+  it('should render undefined items', () => {
+    const wrapper = shallow(<CulinaryList items={undefined} />)
+    expect(wrapper.find('li')).to.have.length(0)
+  })
+  it('should render some items', () => {
+    const items = ['Sate Klatak', 'Gado-gado', 'Pastel Makcik']
+    const wrapper = shallow(<CulinaryList items={items} />)
+    expect(wrapper.find('li')).to.have.lengthOf(3)
   })
 })
