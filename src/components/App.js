@@ -9,6 +9,7 @@ export class App extends React.Component {
     this.state = {
       menus: []
     }
+    this.addItem = this.addItem.bind(this)
   }
   addItem (menu) {
     this.setState({
