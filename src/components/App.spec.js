@@ -43,12 +43,21 @@ describe('<App />', () => {
 describe('<InputArea />', () => {
     let wrapper
     beforeEach(() => {
-      wrapper = shallow(<InputArea />)
+      wrapper = mount(<InputArea />)
     })
   it('should contain an input and a button', () => {
     expect(wrapper.containsAllMatchingElements([
       <input />,
       <button>Add</button>
     ])).to.equal(true)
+  })
+
+  it('should accept input', () => {
+    const input = wrapper.find('input')
+    input.simulate('change', {target: {
+      value: 'Gado-gado'
+    }})
+    expect(wrapper.state('text')).to.equal('Gado-gado')
+    expect(input.prop('value')).to.equal('Gado-gado')
   })
 })
