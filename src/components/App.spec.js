@@ -32,4 +32,10 @@ describe('<App />', () => {
     const addItem = wrapper.instance().addItem
     expect(inputArea.props('onSubmit')).to.eql({onSubmit: addItem})
   })
+  it('save state into a new state', () => {
+    const inputArea = wrapper.find(InputArea)
+    inputArea.prop('onSubmit')('Sate Klatak')
+    expect(wrapper.state('menus')).to.eql(['Sate Klatak'])
+  })
+
 })
