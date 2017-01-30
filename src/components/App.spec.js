@@ -39,3 +39,16 @@ describe('<App />', () => {
   })
 
 })
+
+describe('<InputArea />', () => {
+    let wrapper
+    beforeEach(() => {
+      wrapper = shallow(<InputArea />)
+    })
+  it('should contain an input and a button', () => {
+    expect(wrapper.containsAllMatchingElements([
+      <input />,
+      <button>Add</button>
+    ])).to.equal(true)
+  })
+})
