@@ -2,6 +2,9 @@ import React from 'react'
 
 export const InputArea= () => {
   return (
-    <input />
+    <div>
+      <input />
+      <button>Add</button>
+    </div>
   )
 }
