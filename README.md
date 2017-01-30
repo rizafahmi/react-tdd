@@ -1,3 +1,7 @@
+# React TDD With Jest, Chai and Enzyme
+
+Doing TDD with Jest Chai and Enzyme. See commit history or tags to walkingthrough the process.
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
