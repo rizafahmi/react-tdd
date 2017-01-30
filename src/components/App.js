@@ -10,6 +10,11 @@ export class App extends React.Component {
       menus: []
     }
   }
+  addItem (menu) {
+    this.setState({
+      menus: [...this.state.menus, menu]
+    })
+  }
   render () {
     return (
       <div>
