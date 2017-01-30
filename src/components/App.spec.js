@@ -7,8 +7,11 @@ import { InputArea } from './InputArea.js'
 import { CulinaryList } from './CulinaryList.js'
 
 describe('<App />', () => {
+  let wrapper
+  beforeEach(() => {
+    wrapper = shallow(<App />)
+  })
   it('should render InputArea and CulinaryList', () => {
-    const wrapper = shallow(<App />)
     expect(wrapper.containsAllMatchingElements([
       <InputArea />,
       <CulinaryList />
@@ -16,13 +19,17 @@ describe('<App />', () => {
   })
 
   it('should start with empty list', () => {
-    const wrapper = shallow(<App />)
     expect(wrapper.state('menus')).to.have.lengthOf(0)
   })
 
   it('adds items to the list', () => {
-    const wrapper = shallow(<App />)
     wrapper.instance().addItem('Sate Klatak')
     expect(wrapper.state('menus')).to.eql(['Sate Klatak'])
+  })
+
+  it('triggered addItem when InputArea submitted', () => {
+    const inputArea = wrapper.find(InputArea)
+    const addItem = wrapper.instance().addItem
+    expect(inputArea.props('onSubmit')).to.eql({onSubmit: addItem})
   })
 })
